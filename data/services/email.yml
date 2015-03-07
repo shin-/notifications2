@@ -1,0 +1,20 @@
+name: email
+display_name: E-mail service
+subscription_data:
+         recipients:
+            display_name: Recipients
+            type: list:regex
+            regex: '[a-z0-9._+-]+@[a-z0-9.-]+'
+         subject_tag:
+            display_name: Subject tag
+            type: string
+            optional: true
+template: |
+    Hello {{user.username}},
+    This is a notification for a {{event.display_name}}.
+    {{event_message}}
+action:
+    type: mail
+    recipients: "{{subscription_data.recipients.join(', ')}}"
+    subject: "[{{subscription_data.subject_tag}}] {{event.tagline}}"
+    message: "{{template}}"

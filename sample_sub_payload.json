@@ -1,0 +1,10 @@
+{
+    "user": "fb8dc1b7-3705-48ba-8cbf-1d7477b71816",
+    "event": "repo:push",
+    "subscription_data": {
+        "recipients": ["joffrey@docker.com"],
+        "subject_tag": "docker",
+        "repository": "library/busybox"
+    },
+    "service": "email"
+}

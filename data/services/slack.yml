@@ -1,0 +1,16 @@
+name: slack
+display_name: Slack service
+subscription_data:
+         webhook_url:
+            display_name: Webhook URL
+            type: string
+         channel:
+            display_name: Slack Channel
+            type: string
+            optional: true
+template: '{{event_message}}'
+action:
+    type: http
+    method: POST
+    url: "{{subscription_data.webhook_url}}"
+    body: '{"text": "{{template}}", "channel": "{{subscription_data.channel}}"}'
